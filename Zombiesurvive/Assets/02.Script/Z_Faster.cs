@@ -2,57 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Z_Faster : MonoBehaviour {
-    public float Z_FasterHealth = 5;
-    public int AttackDamage = 5;
-    //[SerializeField]
-    PlayerHealth playerHealth;
-    bool AttackDelay;
-    public float DelayTime = 2f;
-    float timer;
+public class Z_Faster : Enemy {
     // Use this for initialization
-    void Start () {
-        playerHealth = GameObject.FindObjectOfType<PlayerHealth>();
+    protected override void Start () {
+        base.Start();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        timer += Time.deltaTime;
+
+    // Update is called once per frame
+    protected override void Update () {
+        base.Update();
+
 
     }
-    //void OnCollisionEnter(Collision col)
-    //{
-    //    if (col.gameObject.tag == "Player")
-    //    {
-    //        AttackDelay = true;
-    //        Attack();
-    //    }
 
-    //}
-    void OnCollisionStay(Collision col)
+    protected override void Attack()
     {
-        if (col.gameObject.tag == "Player")
-        {
-            AttackDelay = true;
-            Attack();
-        }
-
+        base.Attack();
     }
-    void OnCollisionExit(Collision col)
+    public override void TakeDamage(int damage)
     {
-        if (col.gameObject.tag == "Player")
-        {
-            AttackDelay = false;
-        }
-    }
-
-    void Attack()
-    {
-        if (timer >= DelayTime && AttackDelay == true)
-        {
-            playerHealth.TakeDamage(AttackDamage);
-            timer = 0;
-        }
+        base.TakeDamage(damage);
     }
 }

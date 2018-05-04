@@ -9,23 +9,22 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1703565567354092}
+  m_RootGameObject: {fileID: 1279879322578006}
   m_IsPrefabParent: 1
---- !u!1 &1703565567354092
+--- !u!1 &1279879322578006
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4743088302585468}
-  - component: {fileID: 33400094310784640}
-  - component: {fileID: 65276925654795992}
-  - component: {fileID: 23755766964388386}
-  - component: {fileID: 114248790793364428}
-  - component: {fileID: 195223056679293886}
-  - component: {fileID: 54113474676682150}
-  - component: {fileID: 114662403498080236}
+  - component: {fileID: 4307363964336534}
+  - component: {fileID: 33739631389595288}
+  - component: {fileID: 65160112625793744}
+  - component: {fileID: 23548844124819152}
+  - component: {fileID: 195262195111304730}
+  - component: {fileID: 54595808545608610}
+  - component: {fileID: 114154572190456384}
   m_Layer: 0
   m_Name: Z_Slower
   m_TagString: Enemy
@@ -33,12 +32,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4743088302585468
+--- !u!4 &4307363964336534
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1703565567354092}
+  m_GameObject: {fileID: 1279879322578006}
   m_LocalRotation: {x: 0.000000074507284, y: 0.70236754, z: -0.71181446, w: 0.00000027081853}
   m_LocalPosition: {x: 0, y: 0.67, z: 0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -46,12 +45,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23755766964388386
+--- !u!23 &23548844124819152
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1703565567354092}
+  m_GameObject: {fileID: 1279879322578006}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,19 +79,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33400094310784640
+--- !u!33 &33739631389595288
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1703565567354092}
+  m_GameObject: {fileID: 1279879322578006}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54113474676682150
+--- !u!54 &54595808545608610
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1703565567354092}
+  m_GameObject: {fileID: 1279879322578006}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -102,50 +101,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65276925654795992
+--- !u!65 &65160112625793744
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1703565567354092}
+  m_GameObject: {fileID: 1279879322578006}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114248790793364428
+--- !u!114 &114154572190456384
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1703565567354092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81bbe0e4b5a070a4280a39f0fd21d074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114662403498080236
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1703565567354092}
+  m_GameObject: {fileID: 1279879322578006}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53baf47c9da03044780022d49ed67ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Z_SlowerHealth: 10
-  AttackDamage: 10
-  playerHealth: {fileID: 0}
+  timer: 0
+  EnemyHealth: 100
   DelayTime: 1
---- !u!195 &195223056679293886
+  AttackDamage: 10
+  damage: 10
+--- !u!195 &195262195111304730
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1703565567354092}
+  m_GameObject: {fileID: 1279879322578006}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
