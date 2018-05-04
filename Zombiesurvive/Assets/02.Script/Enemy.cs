@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
     public float DelayTime = 2f;
     public int AttackDamage = 5;
     public int damage = 0;
+    public int playerscore = 0;
     // Use this for initialization
     protected virtual void Start()
     {
@@ -41,6 +42,11 @@ public class Enemy : MonoBehaviour {
     {
         nav.SetDestination(player.position);
         timer += Time.deltaTime;
+        if(EnemyHealth <=0)
+        {
+            //playerHealth.TakeScore(playerscore);
+            Death();
+        }
     }
     protected virtual void Attack()
     {
@@ -56,6 +62,11 @@ public class Enemy : MonoBehaviour {
     }
     public virtual void Death()
     {
+    
+        Destroy(this.gameObject, 2);
+        nav.SetDestination(this.transform.position);
+    
+        
     }
 
 }

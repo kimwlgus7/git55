@@ -6,13 +6,11 @@ public class Z_Faster : Enemy {
     // Use this for initialization
     protected override void Start () {
         base.Start();
-
     }
 
     // Update is called once per frame
     protected override void Update () {
         base.Update();
-
 
     }
 
@@ -23,5 +21,9 @@ public class Z_Faster : Enemy {
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
+    }
+    public override void Death()
+    {
+        base.Death();
     }
 }

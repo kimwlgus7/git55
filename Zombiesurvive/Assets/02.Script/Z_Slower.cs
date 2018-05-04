@@ -25,4 +25,8 @@ public class Z_Slower : Enemy {
     {
         base.TakeDamage(damage);
     }
+    public override void Death()
+    {
+        base.Death();
+    }
 }
