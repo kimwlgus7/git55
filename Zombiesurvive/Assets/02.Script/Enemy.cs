@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
+    Animator anim;
     PlayerHealth playerHealth;
     Transform player;
-    UnityEngine.AI.NavMeshAgent nav;
+    NavMeshAgent nav;
     public float timer;
     public float EnemyHealth = 100;
     protected bool AttackDelay;
@@ -14,17 +16,24 @@ public class Enemy : MonoBehaviour {
     public int damage = 0;
     public int playerscore = 0;
     // Use this for initialization
+    protected virtual void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     protected virtual void Start()
     {
         player = GameObject.Find("Player").transform;
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         playerHealth = GameObject.FindObjectOfType<PlayerHealth>();
+        anim.SetBool("IsRun", true);
     }
     void OnCollisionStay(Collision col)
     {
         if (col.gameObject.tag == "Player")
         {
             AttackDelay = true;
+            anim.SetBool("IsRun", false);
+            anim.SetBool("IsAttack", true);
             Attack();
         }
 
@@ -33,6 +42,8 @@ public class Enemy : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
+            anim.SetBool("IsAttack", false);
+            anim.SetBool("IsRun", true);
             AttackDelay = false;
         }
     }
@@ -44,6 +55,7 @@ public class Enemy : MonoBehaviour {
         timer += Time.deltaTime;
         if(EnemyHealth <=0)
         {
+
             //playerHealth.TakeScore(playerscore);
             Death();
         }
@@ -62,11 +74,12 @@ public class Enemy : MonoBehaviour {
     }
     public virtual void Death()
     {
-    
+        anim.SetBool("IsDead", true);
         Destroy(this.gameObject, 2);
-        nav.SetDestination(this.transform.position);
-    
-        
+        Destroy(GetComponent<BoxCollider>());
+        nav.Stop();
+        //nav.SetDestination(this.transform.position);
+
     }
 
 }

@@ -13,7 +13,8 @@ public class PlayerHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(Score);
+        //Debug.Log(Score);
+        Debug.Log(CurrentHealth);
     }
     public void TakeDamage(int damage)
     {
