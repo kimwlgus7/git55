@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour {
     public int AttackDamage = 5;
     public int damage = 0;
     public int playerscore = 0;
+
+    bool attackable = false;
+
     // Use this for initialization
     protected virtual void Awake()
     {
@@ -32,9 +35,11 @@ public class Enemy : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             AttackDelay = true;
+           
+                
             anim.SetBool("IsRun", false);
-            anim.SetBool("IsAttack", true);
-            Attack();
+            
+            //Attack();
         }
 
     }
@@ -52,22 +57,39 @@ public class Enemy : MonoBehaviour {
     protected virtual void Update()
     {
         nav.SetDestination(player.position);
-        timer += Time.deltaTime;
+
+        if (timer >= DelayTime && AttackDelay == true && attackable == false)
+        {
+            timer = 0;
+            attackable = true;
+        }
+        else if(attackable == false)
+            timer += Time.deltaTime;
+
         if(EnemyHealth <=0)
         {
 
             //playerHealth.TakeScore(playerscore);
             Death();
         }
+
+        anim.SetBool("IsAttack", attackable);
     }
     protected virtual void Attack()
     {
-        if (timer >= DelayTime && AttackDelay == true)
+
+        if(AttackDelay)
         {
             playerHealth.TakeDamage(AttackDamage);
             timer = 0;
         }
     }
+
+    public void AttackEnd()
+    {
+        attackable = false;
+    }
+
     public virtual void TakeDamage(int damage)
     {
         EnemyHealth -= damage;

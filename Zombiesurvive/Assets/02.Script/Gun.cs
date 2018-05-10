@@ -6,6 +6,10 @@ public class Gun : MonoBehaviour {
     public int ShotDamage = 0;
     public float ShotDelay = 0;
     public float Range = 0;
+    public float ReroadTime = 0;
+    public int Bullet;
+    public int CurrentBullet;
+    float ReroadTimer;
 
     float timer;
     Ray shootRay = new Ray();
@@ -26,16 +30,36 @@ public class Gun : MonoBehaviour {
         gunLight = GetComponent<Light>();
     }
     // Use this for initialization
-    void Start () {
-		
+    protected virtual void Start () {
+        CurrentBullet = Bullet;
 	}
 	
 	// Update is called once per frame
 	protected virtual void Update () {
+        Debug.Log(CurrentBullet);
         timer += Time.deltaTime;
+
+        if (CurrentBullet <= 0)
+        {
+            if (ReroadTimer >= ReroadTime)
+            {
+                ReroadTimer = 0;
+                CurrentBullet = Bullet;
+            }
+            else
+            {
+                ReroadTimer += Time.deltaTime;
+            }
+        }
+
         if (Input.GetButton("Fire1") && timer >= ShotDelay && Time.timeScale != 0)
         {
-            Shoot();
+           
+            if(CurrentBullet > 0)
+            {
+                Shoot();
+            }
+
         }
         if(timer >= ShotDelay * EffectTime)
         {
@@ -62,6 +86,7 @@ public class Gun : MonoBehaviour {
 
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward;
+        CurrentBullet -= 1;
 
         if (Physics.Raycast(shootRay, out shootHit, Range, shootableMask))
         {

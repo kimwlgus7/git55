@@ -10,8 +10,9 @@ public class AK47 : Gun {
         base.Awake();
     }
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
     }
 
     // Update is called once per frame
