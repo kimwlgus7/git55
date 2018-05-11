@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour {
     public int Bullet;
     public int CurrentBullet;
     float ReroadTimer;
+    public int ReserveBullet = 10;
+
 
     float timer;
     Ray shootRay = new Ray();
@@ -36,19 +38,34 @@ public class Gun : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
-        Debug.Log(CurrentBullet);
+        //Debug.Log("CurrentBullet : " + CurrentBullet);
+        Debug.Log("ReserveBullet : " + ReserveBullet);
+        Debug.Log("CurrentBullet : " + CurrentBullet);
         timer += Time.deltaTime;
 
         if (CurrentBullet <= 0)
         {
-            if (ReroadTimer >= ReroadTime)
+            if(ReserveBullet > 0)
             {
-                ReroadTimer = 0;
-                CurrentBullet = Bullet;
-            }
-            else
-            {
-                ReroadTimer += Time.deltaTime;
+                if (ReroadTimer >= ReroadTime)
+                {
+                    ReroadTimer = 0;
+                    CurrentBullet = Bullet;
+                    if(ReserveBullet < Bullet)
+                    {
+                        CurrentBullet = ReserveBullet;
+                        ReserveBullet = 0;
+                    }
+                    else
+                    {
+                        ReserveBullet -= CurrentBullet;
+                    }
+                    
+                }
+                else
+                {
+                    ReroadTimer += Time.deltaTime;
+                }
             }
         }
 
