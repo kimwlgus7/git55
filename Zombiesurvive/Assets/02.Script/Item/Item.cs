@@ -72,7 +72,7 @@ public class Item : MonoBehaviour
         {
             Ak47UI.gameObject.SetActive(false);
             currentItem.GetComponent<AK47>().ReserveBullet += currentItem.GetComponent<AK47>().Bullet*2;
-            Debug.Log("RR : " + currentItem.GetComponent<AK47>().ReserveBullet);
+            //Debug.Log("RR : " + currentItem.GetComponent<AK47>().ReserveBullet);
         }
 
         Destroy(FiledItem);
@@ -93,7 +93,7 @@ public class Item : MonoBehaviour
         {
             P92UI.gameObject.SetActive(false);
             currentItem.GetComponent<P92>().ReserveBullet += currentItem.GetComponent<P92>().Bullet * 2;
-            Debug.Log("RR : " + currentItem.GetComponent<P92>().ReserveBullet);
+            //Debug.Log("RR : " + currentItem.GetComponent<P92>().ReserveBullet);
         }
 
         Destroy(FiledItem);

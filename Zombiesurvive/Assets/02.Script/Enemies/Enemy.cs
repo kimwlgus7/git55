@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour {
     public int AttackDamage = 5;
     public int damage = 0;
     public int playerscore = 0;
+    public float EnemyExp;
 
     bool attackable = false;
 
@@ -66,12 +67,7 @@ public class Enemy : MonoBehaviour {
         else if(attackable == false)
             timer += Time.deltaTime;
 
-        if(EnemyHealth <=0)
-        {
-
-            //playerHealth.TakeScore(playerscore);
-            Death();
-        }
+        
 
         anim.SetBool("IsAttack", attackable);
     }
@@ -93,6 +89,13 @@ public class Enemy : MonoBehaviour {
     public virtual void TakeDamage(int damage)
     {
         EnemyHealth -= damage;
+
+        if (EnemyHealth <= 0)
+        {
+
+            //playerHealth.TakeScore(playerscore);
+            Death();
+        }
     }
     public virtual void Death()
     {
@@ -100,7 +103,7 @@ public class Enemy : MonoBehaviour {
         Destroy(this.gameObject, 2);
         Destroy(GetComponent<BoxCollider>());
         nav.Stop();
-        //nav.SetDestination(this.transform.position);
+        playerHealth.PlayerExp = playerHealth.PlayerExp + EnemyExp;
 
     }
 
