@@ -6,11 +6,11 @@ public class Gun : MonoBehaviour {
     public int ShotDamage = 0;
     public float ShotDelay = 0;
     public float Range = 0;
-    public float ReroadTime = 0;
-    public int Bullet;
-    public int CurrentBullet;
+    public float ReroadTime = 0;//장전시간
+    public int Bullet;//기본장탄
+    public int CurrentBullet;//현재탄수
     float ReroadTimer;
-    public int ReserveBullet = 10;
+    public int ReserveBullet = 10;//장탄수
 
 
     float timer;
