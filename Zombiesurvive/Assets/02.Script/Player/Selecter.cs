@@ -64,7 +64,7 @@ public class Selecter : MonoBehaviour {
         Time.timeScale = 1;
         selecter.gameObject.SetActive(false);
     }
-    public void Quickdraw()
+    public void ss()
     {
         gun.Bullet += 10;
         Time.timeScale = 1;

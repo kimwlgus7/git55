@@ -12,23 +12,36 @@ public class PlayerHealth : MonoBehaviour {
     public float PlayerExp = 0;
     public float NeedExp = 200;
     public Selecter select;
+    public Slider Expbar;
     
     
+    Rigidbody rb;
 	// Use this for initialization
 	void Start () {
         CurrentHealth = StartingHealth;
         Hpbar.maxValue = StartingHealth;
+        Expbar.maxValue = NeedExp;
+        
         
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(PlayerExp);
+        Debug.Log("Exp = "+PlayerExp);
         Hpbar.value = CurrentHealth;
-        
-        if(PlayerExp >= NeedExp)
+        Expbar.maxValue = NeedExp;
+        Expbar.value = PlayerExp;
+
+        if (PlayerExp >= NeedExp)
         {
             LevelUp();
+        }
+
+        //Debug.Log(Score);
+        //Debug.Log(CurrentHealth);
+        if(CurrentHealth <= 0)
+        {
+            PlayerDeath();
         }
     }
     public void TakeDamage(int damage)
@@ -54,5 +67,9 @@ public class PlayerHealth : MonoBehaviour {
         PlayerExp = 0;
         NeedExp *= 2;
         select.Select();
+    }
+    public void PlayerDeath()
+    {
+        
     }
 }

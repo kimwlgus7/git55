@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: dd90943229d9bb74d899feff65f8f17a
+timeCreated: 1526996892
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: THEUmbrella
+  fontNames:
+  - THEUmbrella
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

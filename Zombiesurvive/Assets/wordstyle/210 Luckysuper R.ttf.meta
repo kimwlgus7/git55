@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: dbdffb38dc0c734409eda491c1da58b0
+timeCreated: 1526996892
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 210 Luckysuper
+  fontNames:
+  - 210 Luckysuper
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 91d95fe50700db84884bc1fe7e4e54a3, type: 3}
+  - {fileID: 12800000, guid: 9d2186a614cf81240b241e434947ac73, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

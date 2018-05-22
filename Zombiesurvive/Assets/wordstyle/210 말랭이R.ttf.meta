@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: efe2d472703563748b91ddd5424e7457
+timeCreated: 1526996892
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 210 Malraenge
+  fontNames:
+  - 210 Malraenge
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8a6264647c1a6d44dae47004b59db0c5, type: 3}
+  - {fileID: 12800000, guid: 02c081359b2fc75469ce50b5d33049f0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

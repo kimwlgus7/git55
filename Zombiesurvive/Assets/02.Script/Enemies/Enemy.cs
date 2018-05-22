@@ -42,7 +42,6 @@ public class Enemy : MonoBehaviour {
             
             //Attack();
         }
-
     }
     void OnCollisionExit(Collision col)
     {
@@ -96,6 +95,7 @@ public class Enemy : MonoBehaviour {
             //playerHealth.TakeScore(playerscore);
             Death();
         }
+        Debug.Log("daamge");
     }
     public virtual void Death()
     {

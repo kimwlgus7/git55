@@ -8,6 +8,8 @@ public class PlayerMove : MonoBehaviour {
     Rigidbody playerRigid;
     Vector3 movement;
     int floorMask;
+    public Transform Player;
+    public Transform Stick;
 
     void Awake()
     {
