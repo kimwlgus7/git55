@@ -10,11 +10,8 @@ public class Item : MonoBehaviour
     public GameObject Ak47;
     public GameObject P92;
     GameObject currentItem;
-    GameObject FiledItem;
-
-    //int ReserveBullet;
-    //int CurrentBullet;
-
+    protected GameObject FiledItem;
+    public GameObject BulletAmount;
     // Use this for initialization
     void Start()
     {

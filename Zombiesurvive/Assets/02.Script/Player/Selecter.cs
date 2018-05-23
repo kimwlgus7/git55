@@ -58,15 +58,15 @@ public class Selecter : MonoBehaviour {
                 break;
         }
     }
-    public void Quickdraw()
+    public void Bigmagazine()
     {
         gun.Bullet += 10;
         Time.timeScale = 1;
         selecter.gameObject.SetActive(false);
     }
-    public void ss()
+    public void Quickdraw()
     {
-        gun.Bullet += 10;
+        gun.ReroadTime -= 0.5f;
         Time.timeScale = 1;
         selecter.gameObject.SetActive(false);
     }

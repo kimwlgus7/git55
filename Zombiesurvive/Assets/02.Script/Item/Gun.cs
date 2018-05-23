@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour {
     public int CurrentBullet;//현재탄수
     float ReroadTimer;
     public int ReserveBullet = 10;//장탄수
+    public PlayerRotation playerrotation;
 
 
     float timer;
@@ -39,8 +40,7 @@ public class Gun : MonoBehaviour {
 	// Update is called once per frame
 	protected virtual void Update () {
         //Debug.Log("CurrentBullet : " + CurrentBullet);
-        Debug.Log("ReserveBullet : " + ReserveBullet);
-        Debug.Log("CurrentBullet : " + CurrentBullet);
+
         timer += Time.deltaTime;
 
         if (CurrentBullet <= 0)
@@ -69,7 +69,7 @@ public class Gun : MonoBehaviour {
             }
         }
 
-        if (Input.GetButton("Fire1") && timer >= ShotDelay && Time.timeScale != 0)
+        if ((playerrotation.joystick.Horizontal !=0 || playerrotation.joystick.Vertical != 0) && timer >= ShotDelay && Time.timeScale != 0)
         {
            
             if(CurrentBullet > 0)
