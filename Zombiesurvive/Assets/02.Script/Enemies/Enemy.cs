@@ -101,10 +101,19 @@ public class Enemy : MonoBehaviour {
     {
         anim.SetBool("IsDead", true);
         Destroy(this.gameObject, 2);
-        Destroy(GetComponent<BoxCollider>());
+        Destroy(GetComponent<CapsuleCollider>());
         nav.Stop();
         playerHealth.PlayerExp = playerHealth.PlayerExp + EnemyExp;
 
+    }
+    public virtual void TakeDamageBomb(int damage)
+    {
+        EnemyHealth -= damage;
+        Debug.Log("bomb!");
+        if(EnemyHealth <= 0)
+        {
+            Death();
+        }
     }
 
 }

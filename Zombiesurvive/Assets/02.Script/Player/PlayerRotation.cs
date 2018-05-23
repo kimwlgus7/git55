@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour {
 
-    Rigidbody playerRigid;
     public Joystick joystick;
     Vector3 lookDirection;
 	// Use this for initialization
 	void Start () {
-		playerRigid = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame

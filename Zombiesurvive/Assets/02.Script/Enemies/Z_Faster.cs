@@ -30,4 +30,8 @@ public class Z_Faster : Enemy {
     {
         base.Death();
     }
+    public override void TakeDamageBomb(int damage)
+    {
+        base.TakeDamageBomb(damage);
+    }
 }
