@@ -8,7 +8,7 @@ public class Bomb : MonoBehaviour {
     Enemy Enemyhp;
 	// Use this for initialization
 	void Start () {
-        Enemyhp = GameObject.FindObjectOfType<Enemy>();
+        //Enemyhp = GameObject.FindObjectOfType<Enemy>();
 	}
 	
 	// Update is called once per frame
@@ -19,7 +19,7 @@ public class Bomb : MonoBehaviour {
     {
         if(other.gameObject.layer == 8)
         {
-            Enemyhp.TakeDamageBomb(Damage);
+            other.GetComponent<Enemy>().TakeDamageBomb(Damage);
             Debug.Log("touch");
         }
     }

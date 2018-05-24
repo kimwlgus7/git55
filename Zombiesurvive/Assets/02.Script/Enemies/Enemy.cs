@@ -101,7 +101,8 @@ public class Enemy : MonoBehaviour {
     {
         anim.SetBool("IsDead", true);
         Destroy(this.gameObject, 2);
-        Destroy(GetComponent<CapsuleCollider>());
+        //Destroy(GetComponent<CapsuleCollider>());
+        Destroy(GetComponent<Rigidbody>());
         nav.Stop();
         playerHealth.PlayerExp = playerHealth.PlayerExp + EnemyExp;
 
