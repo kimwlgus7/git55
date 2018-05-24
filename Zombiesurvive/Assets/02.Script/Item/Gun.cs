@@ -17,7 +17,8 @@ public class Gun : MonoBehaviour {
     float timer;
     Ray shootRay = new Ray();
     RaycastHit shootHit;
-    int shootableMask;
+    [SerializeField]
+    LayerMask shootableMask;
     int shootableMask2;
     LineRenderer gunLine;
     Light gunLight;
@@ -27,7 +28,7 @@ public class Gun : MonoBehaviour {
 
     protected virtual void Awake()
     {
-        shootableMask = LayerMask.GetMask("Shootable");
+        //shootableMask = LayerMask.GetMask("Shootable");
         shootableMask2 = LayerMask.GetMask("Bomber");
 
        // gunParticles = GetComponent<ParticleSystem>();
@@ -112,6 +113,8 @@ public class Gun : MonoBehaviour {
 
             // Try and find an EnemyHealth script on the gameobject hit.
             Enemy enemyHealth = shootHit.collider.GetComponent<Enemy>();
+            Bomb bombhp = shootHit.collider.GetComponent<Bomb>();
+
 
             // If the EnemyHealth component exist...
             if (enemyHealth != null)
@@ -120,25 +123,8 @@ public class Gun : MonoBehaviour {
                 enemyHealth.TakeDamage(ShotDamage);
             }
 
-            // Set the second position of the line renderer to the point the raycast hit.
-            gunLine.SetPosition(1, shootHit.point);
-
-        }
-        else
-        {
-            gunLine.SetPosition(1, transform.position + (transform.forward * Range));
-        }
-        if (Physics.Raycast(shootRay, out shootHit, Range, shootableMask2))
-        {
-
-            // Try and find an EnemyHealth script on the gameobject hit.
-            Bomb bombhp = shootHit.collider.GetComponent<Bomb>();
-            Enemy enemyHealth = shootHit.collider.GetComponent<Enemy>();
-
-            // If the EnemyHealth component exist...
-            if (bombhp != null)
+            if(bombhp != null)
             {
-                // ... the enemy should take damage.
                 bombhp.TakeDamage(ShotDamage);
             }
 
@@ -150,6 +136,28 @@ public class Gun : MonoBehaviour {
         {
             gunLine.SetPosition(1, transform.position + (transform.forward * Range));
         }
+        //if (Physics.Raycast(shootRay, out shootHit, Range, shootableMask2))
+        //{
+
+        //    // Try and find an EnemyHealth script on the gameobject hit.
+        //    Bomb bombhp = shootHit.collider.GetComponent<Bomb>();
+            
+
+        //    // If the EnemyHealth component exist...
+        //    if (bombhp != null)
+        //    {
+        //        // ... the enemy should take damage.
+        //        bombhp.TakeDamage(ShotDamage);
+        //    }
+
+        //    // Set the second position of the line renderer to the point the raycast hit.
+        //    gunLine.SetPosition(1, shootHit.point);
+
+        //}
+        //else
+        //{
+        //    gunLine.SetPosition(1, transform.position + (transform.forward * Range));
+        //}
 
     }
 }

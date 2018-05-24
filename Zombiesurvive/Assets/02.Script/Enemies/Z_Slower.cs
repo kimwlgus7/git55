@@ -16,8 +16,8 @@ public class Z_Slower : Enemy {
     }
 
     // Update is called once per frame
-    protected override void Update() {
-        base.Update();
+    protected override void FixedUpdate() {
+        base.FixedUpdate();
   
     }
 

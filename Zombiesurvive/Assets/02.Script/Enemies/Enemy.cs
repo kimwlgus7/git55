@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour {
            
                 
             anim.SetBool("IsRun", false);
+            nav.isStopped = true;
             
             //Attack();
         }
@@ -50,21 +51,30 @@ public class Enemy : MonoBehaviour {
             anim.SetBool("IsAttack", false);
             anim.SetBool("IsRun", true);
             AttackDelay = false;
+            nav.isStopped = false;
         }
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
-        nav.SetDestination(player.position);
+        
 
         if (timer >= DelayTime && AttackDelay == true && attackable == false)
         {
+            //nav.isStopped = true;
             timer = 0;
             attackable = true;
         }
         else if(attackable == false)
+        {
+            //if (nav.isStopped)
+            //    nav.isStopped = false;
+
+            nav.SetDestination(player.position);
             timer += Time.deltaTime;
+        }
+            
 
         
 
@@ -87,6 +97,9 @@ public class Enemy : MonoBehaviour {
 
     public virtual void TakeDamage(int damage)
     {
+        if (EnemyHealth <= 0)
+            return;
+
         EnemyHealth -= damage;
 
         if (EnemyHealth <= 0)
@@ -105,6 +118,8 @@ public class Enemy : MonoBehaviour {
         Destroy(GetComponent<Rigidbody>());
         nav.Stop();
         playerHealth.PlayerExp = playerHealth.PlayerExp + EnemyExp;
+        Debug.Log("Exp");
+        gameObject.layer = 0;
 
     }
     public virtual void TakeDamageBomb(int damage)

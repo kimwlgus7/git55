@@ -9,6 +9,7 @@ public class Item : MonoBehaviour
     public Button P92UI;
     public GameObject Ak47;
     public GameObject P92;
+    public GameObject Akrender;
     GameObject currentItem;
     protected GameObject FiledItem;
     public GameObject BulletAmount;
@@ -64,6 +65,7 @@ public class Item : MonoBehaviour
             Ak47UI.gameObject.SetActive(false);
             Ak47.SetActive(true);
             P92.SetActive(false);
+            Akrender.SetActive(true);
         }
         else if(currentItem != null && currentItem.name == "AK47")
         {
@@ -85,6 +87,7 @@ public class Item : MonoBehaviour
             P92UI.gameObject.SetActive(false);
             P92.SetActive(true);
             Ak47.SetActive(false);
+            Akrender.SetActive(false);
         }
         else if (currentItem != null && currentItem.name == "P92")
         {
