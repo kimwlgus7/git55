@@ -26,4 +26,12 @@ public class AK47 : Gun {
     {
         base.DisableEffects();
     }
+    public override void ReroadTimers()
+    {
+        base.ReroadTimers();
+    }
+    protected override void Reroad()
+    {
+        base.Reroad();
+    }
 }

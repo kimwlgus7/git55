@@ -23,4 +23,12 @@ public class P92 : Gun {
     {
         base.DisableEffects();
     }
+    public override void ReroadTimers()
+    {
+        base.ReroadTimers();
+    }
+    protected override void Reroad()
+    {
+        base.Reroad();
+    }
 }

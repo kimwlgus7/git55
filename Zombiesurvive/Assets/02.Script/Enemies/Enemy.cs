@@ -68,9 +68,6 @@ public class Enemy : MonoBehaviour {
         }
         else if(attackable == false)
         {
-            //if (nav.isStopped)
-            //    nav.isStopped = false;
-
             nav.SetDestination(player.position);
             timer += Time.deltaTime;
         }
