@@ -13,6 +13,6 @@ public class Level : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        t.text = "Level" + p.PlayerLevel;
+        t.text = ""+p.PlayerLevel;
 	}
 }

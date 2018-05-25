@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour {
     public int damage = 0;
     public int playerscore = 0;
     public float EnemyExp;
+    public GameObject ak47itme;
+    public GameObject p92item;
 
     bool attackable = false;
 
@@ -117,6 +119,7 @@ public class Enemy : MonoBehaviour {
         playerHealth.PlayerExp = playerHealth.PlayerExp + EnemyExp;
         Debug.Log("Exp");
         gameObject.layer = 0;
+        GetItem();
 
     }
     public virtual void TakeDamageBomb(int damage)
@@ -127,6 +130,10 @@ public class Enemy : MonoBehaviour {
         {
             Death();
         }
+    }
+    public virtual void GetItem()
+    {
+
     }
 
 }
