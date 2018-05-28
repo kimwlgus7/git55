@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour {
     public GameObject ak47item;
     public GameObject p92item;
     public GameObject healingitem;
+    public GameObject grenadelauncher;
 
     bool attackable = false;
 
@@ -131,6 +132,14 @@ public class Enemy : MonoBehaviour {
             Death();
         }
     }
+    public virtual void TakeDamageGrenade(int damage)
+    {
+        EnemyHealth -= damage;
+        if (EnemyHealth <= 0)
+        {
+            Death();
+        }
+    }
     public virtual void GetItem()
     {
         int r = Random.Range(0, 10);
@@ -148,12 +157,13 @@ public class Enemy : MonoBehaviour {
                 }
             case 2:
                 {
-                    Instantiate(healingitem, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                    Instantiate(healingitem, this.gameObject.transform.position, healingitem.transform.localRotation);
                     break;
                 }
 
             case 3:
                 {
+                    Instantiate(grenadelauncher, this.gameObject.transform.position, this.gameObject.transform.rotation);
                     break;
                 }
             case 4:

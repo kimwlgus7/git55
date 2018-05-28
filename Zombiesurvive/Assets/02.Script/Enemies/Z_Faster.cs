@@ -34,4 +34,8 @@ public class Z_Faster : Enemy {
     {
         base.TakeDamageBomb(damage);
     }
+    public override void TakeDamageGrenade(int damage)
+    {
+        base.TakeDamageGrenade(damage);
+    }
 }

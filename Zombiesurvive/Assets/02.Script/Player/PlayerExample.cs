@@ -8,6 +8,7 @@ public class PlayerExample : MonoBehaviour {
     Animator anim;
     public GameObject grenade;
     Rigidbody gb;
+    public GameObject Bombposition;
 
     private void Start()
     {
@@ -36,8 +37,6 @@ public class PlayerExample : MonoBehaviour {
     }
     public void Grenade()
     {
-        Instantiate(grenade, this.gameObject.transform.position, this.gameObject.transform.rotation);
-        //gb.AddForce(Vector3.up);
-
+        Instantiate(grenade, Bombposition.transform.position, Bombposition.transform.rotation);
     }
 }

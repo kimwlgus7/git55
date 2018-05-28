@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class Selecter : MonoBehaviour {
     public Image selecter;
     Gun gun;
+    PlayerHealth player;
 
     
 
     // Use this for initialization
     void Start () {
         gun = GameObject.FindObjectOfType<Gun>();
+        player = GameObject.FindObjectOfType<PlayerHealth>();
     }
 	
 	// Update is called once per frame
@@ -67,6 +69,12 @@ public class Selecter : MonoBehaviour {
     public void Quickdraw()
     {
         gun.ReroadTime -= 0.5f;
+        Time.timeScale = 1;
+        selecter.gameObject.SetActive(false);
+    }
+    public void Healingfull()
+    {
+        player.CurrentHealth = player.StartingHealth;
         Time.timeScale = 1;
         selecter.gameObject.SetActive(false);
     }
