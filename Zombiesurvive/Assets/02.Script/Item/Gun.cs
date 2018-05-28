@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour {
     public int ReserveBullet = 10;//장탄수
     public PlayerRotation playerrotation;
     bool gunable = true;
+    Animator anim;
 
 
     float timer;
@@ -39,6 +40,7 @@ public class Gun : MonoBehaviour {
     // Use this for initialization
     protected virtual void Start () {
         CurrentBullet = Bullet;
+        anim = GameObject.Find("Character").GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -78,6 +80,7 @@ public class Gun : MonoBehaviour {
             if(CurrentBullet > 0)
             {
                 Shoot();
+                
             }
 
         }
@@ -113,6 +116,7 @@ public class Gun : MonoBehaviour {
             if (Physics.Raycast(shootRay, out shootHit, Range, shootableMask))
             {
 
+                
                 // Try and find an EnemyHealth script on the gameobject hit.
                 Enemy enemyHealth = shootHit.collider.GetComponent<Enemy>();
                 Bomb bombhp = shootHit.collider.GetComponent<Bomb>();

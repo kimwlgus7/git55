@@ -16,8 +16,9 @@ public class Enemy : MonoBehaviour {
     public int damage = 0;
     public int playerscore = 0;
     public float EnemyExp;
-    public GameObject ak47itme;
+    public GameObject ak47item;
     public GameObject p92item;
+    public GameObject healingitem;
 
     bool attackable = false;
 
@@ -38,11 +39,11 @@ public class Enemy : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             AttackDelay = true;
-           
-                
+
+
             anim.SetBool("IsRun", false);
             nav.isStopped = true;
-            
+
             //Attack();
         }
     }
@@ -57,11 +58,10 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
-        
-
         if (timer >= DelayTime && AttackDelay == true && attackable == false)
         {
             //nav.isStopped = true;
@@ -133,7 +133,59 @@ public class Enemy : MonoBehaviour {
     }
     public virtual void GetItem()
     {
+        int r = Random.Range(0, 10);
+        switch (r)
+        {
+            case 0:
+                {
+                    Instantiate(ak47item, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                    break;
+                }
+            case 1:
+                {
+                    Instantiate(p92item, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                    break;
+                }
+            case 2:
+                {
+                    Instantiate(healingitem, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                    break;
+                }
 
+            case 3:
+                {
+                    break;
+                }
+            case 4:
+                {
+                    break;
+                }
+            case 5:
+                {
+                    break;
+                }
+            case 6:
+                {
+                    break;
+                }
+            case 7:
+                {
+                    break;
+                }
+            case 8:
+                {
+                    break;
+                }
+            case 9:
+                {
+                    break;
+                }
+            case 10:
+                {
+                    break;
+                }
+        }
+        
     }
 
 }

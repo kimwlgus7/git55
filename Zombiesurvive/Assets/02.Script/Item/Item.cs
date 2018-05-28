@@ -28,14 +28,21 @@ public class Item : MonoBehaviour
     {
         if (other.gameObject.tag == "Ak47Box")
         {
-            FiledItem = other.gameObject;
-            //currentItem = Ak47;
-            Ak47UI.gameObject.SetActive(true);
+            if(currentItem == Ak47)
+            {
+                currentItem.GetComponent<AK47>().ReserveBullet += currentItem.GetComponent<AK47>().Bullet * 2;
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                FiledItem = other.gameObject;
+                Ak47UI.gameObject.SetActive(true);
+            }
+           
         }
         if (other.gameObject.tag == "P92Box")
         {
             FiledItem = other.gameObject;
-            //currentItem = P92;
             P92UI.gameObject.SetActive(true);
 
         }
