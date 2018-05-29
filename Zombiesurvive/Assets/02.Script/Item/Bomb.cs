@@ -6,6 +6,8 @@ public class Bomb : MonoBehaviour {
     public int BompHp = 50;
     public int Damage;
     Enemy Enemyhp;
+    public GameObject effect;
+    
 	// Use this for initialization
 	void Start () {
         //Enemyhp = GameObject.FindObjectOfType<Enemy>();
@@ -29,7 +31,9 @@ public class Bomb : MonoBehaviour {
         if (BompHp <= 0)
         {
             gameObject.GetComponent<SphereCollider>().enabled = true;
-            Destroy(gameObject, 0.5f);
+            Instantiate(effect, transform.position, transform.rotation);
+            Destroy(gameObject, 0.3f);
+            
         }
     }
 }

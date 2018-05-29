@@ -17,7 +17,7 @@ public class Instance : MonoBehaviour {
         timer += Time.deltaTime;
         if (timer >= ZombieDelay)
         {
-            Instantiate(gameObject, position);
+            Instantiate(gameObject, gameObject.transform.position, gameObject.transform.rotation);
             timer = 0;
         }
 	}
