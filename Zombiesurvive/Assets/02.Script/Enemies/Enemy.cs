@@ -116,7 +116,7 @@ public class Enemy : MonoBehaviour {
         Destroy(this.gameObject, 2);
         //Destroy(GetComponent<CapsuleCollider>());
         Destroy(GetComponent<Rigidbody>());
-        nav.Stop();
+        nav.isStopped = true;
         playerHealth.PlayerExp = playerHealth.PlayerExp + EnemyExp;
         Debug.Log("Exp");
         gameObject.layer = 0;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Roket : Gun {
-
+    public int gap;
     protected override void Awake()
     {
         base.Awake();
@@ -19,6 +19,7 @@ public class Roket : Gun {
     {
         base.Update();
         Debug.DrawRay(transform.position, this.transform.forward * Range, Color.red);
+
 
     }
     protected override void DisableEffects()

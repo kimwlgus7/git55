@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Instance : MonoBehaviour {
-    public GameObject gameObject;
+    public GameObject zombie;
     public float ZombieDelay = 2;
     float timer;
     public Transform position;
@@ -17,7 +17,7 @@ public class Instance : MonoBehaviour {
         timer += Time.deltaTime;
         if (timer >= ZombieDelay)
         {
-            Instantiate(gameObject, gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(zombie, this.gameObject.transform.position, this.gameObject.transform.rotation);
             timer = 0;
         }
 	}

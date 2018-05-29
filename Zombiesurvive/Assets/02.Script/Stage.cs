@@ -3,33 +3,81 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Stage : MonoBehaviour {
-    public GameObject stage1_1;
-    public GameObject stage1_2;
-    public GameObject stage1_3;
-
-
-    Instance mobdelay;
+    public GameObject Stage1;
+    public GameObject Stage2;
+    public GameObject[] allenemy;
+    public int currentstage;
+    public float timer = 60;
+    public GameObject TimerUi;
 
 	// Use this for initialization
 	void Start () {
         StartCoroutine(stage1());
+        currentstage = 1;
 	}
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+	
+	// Update is called once per frame
+	void Update () {
+        timer -= Time.deltaTime;
+        //allenemy = GameObject.FindGameObjectsWithTag("Enemy");
+        //if (timer <= 0)
+        //{
+        //    TimerUi.SetActive(false);
+        //}
+        //if(currentstage ==1 && allenemy.Length == 0)
+        //{
+        //    timer = 5f;
+        //}
+	}
     IEnumerator stage1()
     {
-        stage1_1.SetActive(true);
-        //stage1_2.SetActive(true);
-        //stage1_3.SetActive(true);
+        timer = 60;
+        TimerUi.SetActive(true);
+        Stage1.SetActive(true);
         yield return new WaitForSeconds(10f);
-        stage1_1.SetActive(false);
-        //stage1_2.SetActive(false);
-        //stage1_3.SetActive(false);
-        yield return new WaitForSeconds(60f);
-        
+        Stage1.SetActive(false);
+        yield return new WaitForSeconds(50f);
+        TimerUi.SetActive(false);
+        allenemy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in allenemy)
+        {
+            Destroy(enemy);
+        }
+        yield return new WaitForSeconds(5f);
+        //stage2();
+        timer = 60;
+        TimerUi.SetActive(true);
+        currentstage = 2;
+        yield return new WaitForSeconds(5f);
+        Stage2.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        Stage2.SetActive(false);
+        yield return new WaitForSeconds(45f);
+        TimerUi.SetActive(false);
+        allenemy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in allenemy)
+        {
+            Destroy(enemy);
+        }
+        yield return new WaitForSeconds(5f);
     }
-        
+    //IEnumerator stage2()
+    //{
+    //    timer = 0;
+    //    TimerUi.SetActive(true);
+    //    currentstage = 2;
+    //    yield return new WaitForSeconds(5f);
+    //    Stage2.SetActive(true);
+    //    yield return new WaitForSeconds(10f);
+    //    Stage2.SetActive(false);
+    //    yield return new WaitForSeconds(40f);
+    //    TimerUi.SetActive(false);
+    //    allenemy = GameObject.FindGameObjectsWithTag("Enemy");
+    //    foreach (GameObject enemy in allenemy)
+    //    {
+    //        Destroy(enemy);
+    //    }
+    //    yield return new WaitForSeconds(5f);
+    //    stage2();
+    //}
 }
