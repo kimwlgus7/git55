@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Zombiesurvive/Assets/03.Prefab/AkBox.prefab.meta
 guid: b515b73c1c90abc4d9d78b78c4d3f2d2
 timeCreated: 1527501769
+=======
+guid: 2a076a3945639374f9383db7c2ff29ff
+timeCreated: 1527222487
+>>>>>>> Stashed changes:Zombiesurvive/Assets/03.Prefab/Ak47Box.prefab.meta
 licenseType: Free
 NativeFormatImporter:
   externalObjects: {}

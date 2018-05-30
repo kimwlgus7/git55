@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour {
     public float NeedExp = 200;
     public Selecter select;
     public Slider Expbar;
+    public int getmoney = 0;
     
     
     Rigidbody rb;

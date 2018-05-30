@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: dbaed36428e11e7428fb43e66073c9d5
 timeCreated: 1527594654
+=======
+guid: c39a56152d7e63942880e069f6060bcf
+timeCreated: 1527580878
+>>>>>>> Stashed changes
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}

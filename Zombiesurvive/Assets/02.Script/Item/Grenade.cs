@@ -7,6 +7,7 @@ public class Grenade : MonoBehaviour {
     Rigidbody rb;
     float timer;
     float grenadetime=10;
+    public GameObject effect;
     private void Awake()
     {
         rb = this.gameObject.GetComponent<Rigidbody>();
@@ -22,6 +23,7 @@ public class Grenade : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy")
         {
             gameObject.GetComponent<SphereCollider>().enabled = true;
+            Instantiate(effect, transform.position, transform.rotation);
             Destroy(gameObject, 1f);
         }
     }

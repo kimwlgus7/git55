@@ -7,6 +7,7 @@ public class Selecter : MonoBehaviour {
     public Image selecter;
     Gun gun;
     PlayerHealth player;
+    PlayerExample player2;
 
     
 
@@ -14,6 +15,7 @@ public class Selecter : MonoBehaviour {
     void Start () {
         gun = GameObject.FindObjectOfType<Gun>();
         player = GameObject.FindObjectOfType<PlayerHealth>();
+        player2 = GameObject.FindObjectOfType<PlayerExample>();
     }
 	
 	// Update is called once per frame
@@ -30,6 +32,7 @@ public class Selecter : MonoBehaviour {
     public void RandomSelect()
     {
         int r = Random.Range(0, 5);
+        int l = Random.Range(0, 5);
         Debug.Log(r);
 
         switch(r)
@@ -59,6 +62,33 @@ public class Selecter : MonoBehaviour {
                 Debug.Log("4");
                 break;
         }
+        switch (l)
+        {
+            case 0:
+                GameObject.Find("Selecter").transform.GetChild(5).gameObject.SetActive(true);
+
+                //selecter.gameObject.SetActive(false);
+                Debug.Log("0");
+                break;
+            case 1:
+                GameObject.Find("Selecter").transform.GetChild(6).gameObject.SetActive(true);
+                //button = GameObject.Find("Selecter").transform.Find("select1").gameObject;
+                //button.gameObject.SetActive(true);
+                Debug.Log("1");
+                break;
+            case 2:
+                GameObject.Find("Selecter").transform.GetChild(7).gameObject.SetActive(true);
+                Debug.Log("2");
+                break;
+            case 3:
+                GameObject.Find("Selecter").transform.GetChild(8).gameObject.SetActive(true);
+                Debug.Log("3");
+                break;
+            case 4:
+                GameObject.Find("Selecter").transform.GetChild(9).gameObject.SetActive(true);
+                Debug.Log("4");
+                break;
+        }
     }
     public void Bigmagazine()
     {
@@ -75,6 +105,12 @@ public class Selecter : MonoBehaviour {
     public void Healingfull()
     {
         player.CurrentHealth = player.StartingHealth;
+        Time.timeScale = 1;
+        selecter.gameObject.SetActive(false);
+    }
+    public void SpeedUp()
+    {
+        player2.moveSpeed += 0.2f;
         Time.timeScale = 1;
         selecter.gameObject.SetActive(false);
     }

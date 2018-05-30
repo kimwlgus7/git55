@@ -16,12 +16,21 @@ public class Enemy : MonoBehaviour {
     public int damage = 0;
     public int playerscore = 0;
     public float EnemyExp;
+
     public GameObject ak47item;
     public GameObject p92item;
     public GameObject healingitem;
     public GameObject grenadelauncher;
+    public GameObject coin;
+
+    //public GameObject ak47box;
+    //public GameObject p92box;
+    //public GameObject coin;
+    //public Transform itemposition;
+
 
     bool attackable = false;
+
 
     // Use this for initialization
     protected virtual void Awake()
@@ -163,11 +172,12 @@ public class Enemy : MonoBehaviour {
 
             case 3:
                 {
-                    Instantiate(grenadelauncher, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                    //Instantiate(grenadelauncher, this.gameObject.transform.position, this.gameObject.transform.rotation);
                     break;
                 }
             case 4:
                 {
+                    Instantiate(coin, this.gameObject.transform.position, this.gameObject.transform.rotation);
                     break;
                 }
             case 5:
@@ -195,7 +205,21 @@ public class Enemy : MonoBehaviour {
                     break;
                 }
         }
-        
     }
+        
+    //public virtual void GetItem1()
+    //{
+    //    int r = Random.Range(0, 1);
+    //    switch (r)
+    //    {
+    //        case 0:
+    //            Instantiate(ak47box, this.transform);
+    //            Debug.Log("0");
+    //            break;
+    //        case 1:
+    //            Instantiate(p92box, this.transform);
+    //            Debug.Log("0");
+    //            break;
 
-}
+    //    }
+    }

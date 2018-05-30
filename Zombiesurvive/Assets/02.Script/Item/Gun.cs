@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour {
     public float ReroadTime = 0;//장전시간
     public int Bullet;//기본장탄
     public int CurrentBullet;//현재탄수
-    float ReroadTimer;
+    public float ReroadTimer;
     public int ReserveBullet = 10;//장탄수
     public PlayerRotation playerrotation;
     bool gunable = true;

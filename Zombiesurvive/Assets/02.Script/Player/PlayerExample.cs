@@ -9,9 +9,11 @@ public class PlayerExample : MonoBehaviour {
     public GameObject grenade;
     Rigidbody gb;
     public GameObject Bombposition;
+    public int grenadeamount;
 
     private void Start()
     {
+        grenadeamount = 3;
         anim = GameObject.Find("Character").GetComponent<Animator>();
         gb = grenade.GetComponent<Rigidbody>();
     }
@@ -37,6 +39,11 @@ public class PlayerExample : MonoBehaviour {
     }
     public void Grenade()
     {
-        Instantiate(grenade, Bombposition.transform.position, Bombposition.transform.rotation);
+        if(grenadeamount > 0)
+        {
+            Instantiate(grenade, Bombposition.transform.position, Bombposition.transform.rotation);
+            grenadeamount -= 1;
+        }
+        
     }
 }
