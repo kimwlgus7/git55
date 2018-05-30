@@ -72,6 +72,7 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
+        nav.SetDestination(player.position);
         Debug.Log(nav.destination);
         if (timer >= DelayTime && AttackDelay == true && attackable == false)
         {
@@ -80,7 +81,7 @@ public class Enemy : MonoBehaviour {
         }
         else if(attackable == false)
         {
-            nav.SetDestination(player.position);
+            //nav.SetDestination(player.position);
             timer += Time.deltaTime;
         }
             

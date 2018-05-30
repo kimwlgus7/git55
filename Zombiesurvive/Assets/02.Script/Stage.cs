@@ -60,6 +60,7 @@ public class Stage : MonoBehaviour {
             Destroy(enemy);
         }
         yield return new WaitForSeconds(5f);
+        Stage2.SetActive(true);
     }
     //IEnumerator stage2()
     //{
