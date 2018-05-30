@@ -24,7 +24,7 @@ public class Grenade : MonoBehaviour {
         {
             gameObject.GetComponent<SphereCollider>().enabled = true;
             Instantiate(effect, transform.position, transform.rotation);
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 0.3f);
         }
     }
 

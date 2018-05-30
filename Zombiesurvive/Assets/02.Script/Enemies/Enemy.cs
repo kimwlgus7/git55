@@ -72,9 +72,9 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
+        Debug.Log(nav.destination);
         if (timer >= DelayTime && AttackDelay == true && attackable == false)
         {
-            //nav.isStopped = true;
             timer = 0;
             attackable = true;
         }

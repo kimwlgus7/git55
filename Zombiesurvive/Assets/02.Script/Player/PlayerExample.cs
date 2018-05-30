@@ -10,12 +10,12 @@ public class PlayerExample : MonoBehaviour {
     Rigidbody gb;
     public GameObject Bombposition;
     public int grenadeamount;
+    public Joystick joystick2;
 
     private void Start()
     {
         grenadeamount = 3;
         anim = GameObject.Find("Character").GetComponent<Animator>();
-        gb = grenade.GetComponent<Rigidbody>();
     }
 
     void FixedUpdate () 
@@ -35,6 +35,12 @@ public class PlayerExample : MonoBehaviour {
         }
         //Vector3 movement = new Vector3(moveh, 0f, movev).normalized;
         //rb.AddForce(movement * moveSpeed);
+        if (joystick.Horizontal == 0 && joystick.Vertical == 0 && (joystick2.Horizontal != 0 || joystick2.Vertical != 0))
+        {
+            anim.SetBool("IsAttack2", true);
+        }
+        else
+            anim.SetBool("IsAttack2", false);
 
     }
     public void Grenade()

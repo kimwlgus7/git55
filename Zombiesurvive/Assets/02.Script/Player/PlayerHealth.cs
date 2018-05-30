@@ -14,11 +14,15 @@ public class PlayerHealth : MonoBehaviour {
     public Selecter select;
     public Slider Expbar;
     public int getmoney = 0;
+    public GameObject redflash;
+    Animator anim;
+    Enemy enemyattack;
     
     
     Rigidbody rb;
 	// Use this for initialization
 	void Start () {
+        anim = GameObject.Find("Character").GetComponent<Animator>();
         CurrentHealth = StartingHealth;
         Hpbar.maxValue = StartingHealth;
         Expbar.maxValue = NeedExp;
@@ -31,6 +35,7 @@ public class PlayerHealth : MonoBehaviour {
         Hpbar.value = CurrentHealth;
         Expbar.maxValue = NeedExp;
         Expbar.value = PlayerExp;
+        redflash.SetActive(false);
 
         if (PlayerExp >= NeedExp)
         {
@@ -47,6 +52,10 @@ public class PlayerHealth : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
+        redflash.SetActive(true);
+        
+
+
     }
     public void TakeScore(int score)
     {
@@ -70,6 +79,8 @@ public class PlayerHealth : MonoBehaviour {
     }
     public void PlayerDeath()
     {
+        Destroy(GetComponent<PlayerExample>());
+        anim.SetBool("IsDead", true);
         
     }
 }
