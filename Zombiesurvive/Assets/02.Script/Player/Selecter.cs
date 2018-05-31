@@ -33,6 +33,7 @@ public class Selecter : MonoBehaviour {
     {
         int r = Random.Range(0, 5);
         int l = Random.Range(0, 5);
+        int i = Random.Range(0, 5);
         Debug.Log(r);
 
         switch(r)
@@ -86,6 +87,33 @@ public class Selecter : MonoBehaviour {
                 break;
             case 4:
                 GameObject.Find("Selecter").transform.GetChild(9).gameObject.SetActive(true);
+                Debug.Log("4");
+                break;
+        }
+        switch (i)
+        {
+            case 0:
+                GameObject.Find("Selecter").transform.GetChild(10).gameObject.SetActive(true);
+
+                //selecter.gameObject.SetActive(false);
+                Debug.Log("0");
+                break;
+            case 1:
+                GameObject.Find("Selecter").transform.GetChild(11).gameObject.SetActive(true);
+                //button = GameObject.Find("Selecter").transform.Find("select1").gameObject;
+                //button.gameObject.SetActive(true);
+                Debug.Log("1");
+                break;
+            case 2:
+                GameObject.Find("Selecter").transform.GetChild(12).gameObject.SetActive(true);
+                Debug.Log("2");
+                break;
+            case 3:
+                GameObject.Find("Selecter").transform.GetChild(13).gameObject.SetActive(true);
+                Debug.Log("3");
+                break;
+            case 4:
+                GameObject.Find("Selecter").transform.GetChild(14).gameObject.SetActive(true);
                 Debug.Log("4");
                 break;
         }

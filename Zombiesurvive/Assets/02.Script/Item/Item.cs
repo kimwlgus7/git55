@@ -17,10 +17,14 @@ public class Item : MonoBehaviour
     GameObject currentItem;
     protected GameObject FiledItem;
     public GameObject BulletAmount;
+    AK47 ak;
+    P92 p92;
     // Use this for initialization
     void Start()
     {
-        
+        currentItem = P92;
+        ak = Ak47.GetComponent<AK47>();
+        p92 = P92.GetComponent<P92>();
     }
 
     // Update is called once per frame
@@ -105,7 +109,9 @@ public class Item : MonoBehaviour
             P92.SetActive(false);
             Akrender.SetActive(true);
             P92render.SetActive(false);
-            Roketrender.SetActive(false);
+            p92.CurrentBullet = p92.Bullet;
+            p92.ReserveBullet = p92.Bullet * 2;
+            //Roketrender.SetActive(false);
         }
         else if(currentItem != null && currentItem.name == "AK47")
         {
@@ -130,7 +136,10 @@ public class Item : MonoBehaviour
             RoketLauncher.SetActive(false);
             Akrender.SetActive(false);
             P92render.SetActive(true);
-            Roketrender.SetActive(false);
+            ak.CurrentBullet = ak.Bullet;
+            ak.ReserveBullet = ak.Bullet * 2;
+            
+            //Roketrender.SetActive(false);
         }
         else if (currentItem != null && currentItem.name == "P92")
         {

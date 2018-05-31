@@ -8,12 +8,14 @@ public class Grenade : MonoBehaviour {
     float timer;
     float grenadetime=10;
     public GameObject effect;
+    Vector3 dir;
     private void Awake()
     {
-        rb = this.gameObject.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        
     }
     void Start () {
-        rb.AddForce(new Vector3(0, 50, 0));
+        rb.AddForce(transform.forward*1000f);
         
         
     }

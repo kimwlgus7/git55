@@ -14,7 +14,7 @@ public class PlayerExample : MonoBehaviour {
 
     private void Start()
     {
-        grenadeamount = 3;
+        grenadeamount = 10;
         anim = GameObject.Find("Character").GetComponent<Animator>();
     }
 

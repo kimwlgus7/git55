@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour {
     public GameObject healingitem;
     public GameObject grenadelauncher;
     public GameObject coin;
+    bool navset = true;
 
     //public GameObject ak47box;
     //public GameObject p92box;
@@ -52,7 +53,11 @@ public class Enemy : MonoBehaviour {
 
 
             anim.SetBool("IsRun", false);
-            nav.isStopped = true;
+            if(navset == true)
+            {
+                nav.isStopped = true;
+            }
+            
 
             //Attack();
         }
@@ -64,7 +69,10 @@ public class Enemy : MonoBehaviour {
             anim.SetBool("IsAttack", false);
             anim.SetBool("IsRun", true);
             AttackDelay = false;
-            nav.isStopped = false;
+            if (navset == true)
+            {
+                nav.isStopped = false;
+            }
         }
     }
 
@@ -72,8 +80,10 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
-        nav.SetDestination(player.position);
-        Debug.Log(nav.destination);
+        if(navset == true)
+        {
+            nav.SetDestination(player.position);
+        }
         if (timer >= DelayTime && AttackDelay == true && attackable == false)
         {
             timer = 0;
@@ -123,12 +133,12 @@ public class Enemy : MonoBehaviour {
     public virtual void Death()
     {
         anim.SetBool("IsDead", true);
+        navset = false;
         Destroy(this.gameObject, 2);
         //Destroy(GetComponent<CapsuleCollider>());
-        Destroy(GetComponent<Rigidbody>());
-        nav.isStopped = true;
+        Destroy(GetComponent<NavMeshAgent>());
+        //nav.isStopped = true;
         playerHealth.PlayerExp = playerHealth.PlayerExp + EnemyExp;
-        Debug.Log("Exp");
         gameObject.layer = 0;
         GetItem();
 

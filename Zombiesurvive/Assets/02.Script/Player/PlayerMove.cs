@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour {
     int floorMask;
     public Transform Player;
     public Transform Stick;
+    Animator anim;
 
     void Awake()
     {
@@ -18,7 +19,7 @@ public class PlayerMove : MonoBehaviour {
 
     }
     void Start () {
-		
+        anim = GameObject.Find("Character").GetComponent<Animator>();
 	}
     void FixedUpdate()
     {
@@ -26,19 +27,20 @@ public class PlayerMove : MonoBehaviour {
         float v = Input.GetAxis("Vertical");
 
         Move(h, v);
-        Turning();
+        //Turning();
+        anim.SetBool("IsRun", true);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //float h = Input.GetAxis("Horizontal");
-        //float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
 
-        //h = h * MoveSpeed * Time.deltaTime;
-        //v = v * MoveSpeed * Time.deltaTime;
-        //transform.Translate(Vector3.right * h);
-        //transform.Translate(Vector3.forward * v);
-	}
+        h = h * MoveSpeed * Time.deltaTime;
+        v = v * MoveSpeed * Time.deltaTime;
+        transform.Translate(Vector3.right * h);
+        transform.Translate(Vector3.forward * v);
+    }
     void Move(float h, float v)
     {
         movement.Set(h, 0, v);
@@ -47,19 +49,19 @@ public class PlayerMove : MonoBehaviour {
 
         playerRigid.MovePosition(transform.position + movement);
     }
-    void Turning()
-    {
-        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //void Turning()
+    //{
+    //    Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        RaycastHit floorHit;
+    //    RaycastHit floorHit;
 
-        if (Physics.Raycast(camRay, out floorHit, camRayLangth, floorMask))
-        {
-            Vector3 playerToMouse = floorHit.point - transform.position;
+    //    if (Physics.Raycast(camRay, out floorHit, camRayLangth, floorMask))
+    //    {
+    //        Vector3 playerToMouse = floorHit.point - transform.position;
 
-            playerToMouse.y = 0f;
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-            playerRigid.MoveRotation(newRotation);
-        }
-    }
+    //        playerToMouse.y = 0f;
+    //        Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+    //        playerRigid.MoveRotation(newRotation);
+    //    }
+    //}
 }

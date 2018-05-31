@@ -81,6 +81,7 @@ public class PlayerHealth : MonoBehaviour {
     {
         Destroy(GetComponent<PlayerExample>());
         anim.SetBool("IsDead", true);
+        gameObject.tag = "Untagged";
         
     }
 }

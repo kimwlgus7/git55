@@ -10,15 +10,18 @@ public class P92 : Gun {
         base.Awake();
     }
 
-    void Start () {
-	}
-	
-	// Update is called once per frame
-	protected override void Update () {
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    // Update is called once per frame
+    protected override void Update()
+    {
         base.Update();
         Debug.DrawRay(transform.position, this.transform.forward * Range, Color.red);
-        
-	}
+
+    }
     protected override void DisableEffects()
     {
         base.DisableEffects();
