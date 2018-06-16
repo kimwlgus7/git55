@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi.SavedGame;
+using System;
+using GooglePlayGames.BasicApi;
 
 public class PlayerHealth : MonoBehaviour {
     public int StartingHealth = 100;
@@ -48,6 +54,18 @@ public class PlayerHealth : MonoBehaviour {
         {
             PlayerDeath();
         }
+        if (Score <= 1000)
+            Social.ReportProgress(GPGSIds2.achievement_bronzescore, 100f, null);
+        else if (Score <= 3000)
+            Social.ReportProgress(GPGSIds2.achievement_silverscore, 100f, null);
+        else if (Score <= 5000)
+            Social.ReportProgress(GPGSIds2.achievement_goldscore, 100f, null);
+        else if (Score <= 8000)
+            Social.ReportProgress(GPGSIds2.achievement_platinumscore, 100f, null);
+        else if (Score <= 15000)
+            Social.ReportProgress(GPGSIds2.achievement_diamondscore, 100f, null);
+
+
     }
     public void TakeDamage(int damage)
     {
@@ -82,6 +100,12 @@ public class PlayerHealth : MonoBehaviour {
         Destroy(GetComponent<PlayerExample>());
         anim.SetBool("IsDead", true);
         gameObject.tag = "Untagged";
+        GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
+        Social.ReportScore(Score, "CgkIl_yphtUIEAIQAA", success =>
+        {
+            Debug.Log("report_score");
+            Debug.Log(success);
+        });
         
     }
 }

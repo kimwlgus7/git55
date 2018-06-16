@@ -141,6 +141,7 @@ public class Enemy : MonoBehaviour {
         playerHealth.PlayerExp = playerHealth.PlayerExp + EnemyExp;
         gameObject.layer = 0;
         GetItem();
+        playerHealth.TakeScore(playerscore);
 
     }
     public virtual void TakeDamageBomb(int damage)

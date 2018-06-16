@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-
     private void Awake()
     {
         Screen.orientation = ScreenOrientation.Landscape;
@@ -29,5 +29,9 @@ public class GameManager : MonoBehaviour {
                 Screen.orientation = ScreenOrientation.LandscapeRight;
                 break;
         }
+    }
+    public void MainScene()
+    {
+        SceneManager.LoadSceneAsync("0.Main");
     }
 }
